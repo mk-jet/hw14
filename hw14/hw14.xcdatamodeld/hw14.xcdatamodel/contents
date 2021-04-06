@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="TaskDone" representedClassName="TaskDone" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="TaskUndone" representedClassName="TaskUndone" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
+    <entity name="CoreDataTasks" representedClassName="CoreDataTasks" syncable="YES" codeGenerationType="category">
+        <attribute name="completeness" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="New task"/>
     </entity>
     <elements>
-        <element name="TaskDone" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="TaskUndone" positionX="-54" positionY="9" width="128" height="44"/>
+        <element name="CoreDataTasks" positionX="-63" positionY="-18" width="128" height="59"/>
     </elements>
 </model>

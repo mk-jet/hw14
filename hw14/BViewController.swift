@@ -1,17 +1,12 @@
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class BViewController: UIViewController {
     
     @IBOutlet var taskTableView: UITableView!
 
     @IBAction func addTaskButton(_ sender: Any) {
-        let newTask = Task()
-        newTask.taskName = "New task"
-        newTask.taskDone = false
-        try! Ambry.shared.tasks.write {
-            Ambry.shared.tasks.add(newTask)
-        }
+        Ambry.shared.addNewTask()
         self.taskTableView.reloadData()
     }
 
@@ -26,7 +21,7 @@ extension BViewController: UITableViewDataSource, UITableViewDelegate, BTableVie
     func numberOfSections(in tableView: UITableView) -> Int { return 2 }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? Ambry.shared.tasks.objects(Task.self).filter("taskDone == false").count : Ambry.shared.tasks.objects(Task.self).filter("taskDone == true").count
+        return section == 0 ? Ambry.shared.undoneTasks().count : Ambry.shared.doneTasks().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,7 +30,7 @@ extension BViewController: UITableViewDataSource, UITableViewDelegate, BTableVie
         cell.taskDeleteButton.backgroundColor = UIColor.white
         cell.taskDeleteButton.setImage(UIImage(named: "delete"), for: .normal)
 
-        let section = indexPath.section == 0 ? Ambry.shared.tasks.objects(Task.self).filter("taskDone == false") : Ambry.shared.tasks.objects(Task.self).filter("taskDone == true")
+        let section = indexPath.section == 0 ? Ambry.shared.undoneTasks() : Ambry.shared.doneTasks()
         let task = section[indexPath.row].taskName
 
         let taskButtonImage = indexPath.section == 0 ? UIImage(named: "uncheck") : UIImage(named: "check")
@@ -57,70 +52,30 @@ extension BViewController: UITableViewDataSource, UITableViewDelegate, BTableVie
     }
 
     func taskDoneButtonTouched(cell: BTableViewCell) {
-        if let currentTask = cell.taskNameTextField.text {
-            try! Ambry.shared.tasks.write {
-                for task in Ambry.shared.tasks.objects(Task.self){
-                    if task.taskName == currentTask {
-                        task.taskDone = !task.taskDone
-                        break
-                    }
-                }
+        if let name = cell.taskNameTextField.text {
+            if let section = self.taskTableView.indexPath(for: cell)?.section {
+                Ambry.shared.changeStatus(section: section, name: name)
             }
         }
         self.taskTableView.reloadData()
     }
 
     func taskNameChanged(cell: BTableViewCell) {
-        // Полагаю, есть гораздо более элегантное решение, но я ничего лучше не придумал
-        if let index = self.taskTableView.indexPath(for: cell) {
-            if index.section == 0 {
-                let undoneTasks = Ambry.shared.tasks.objects(Task.self).filter("taskDone == false")
-                var oldString = ""
-                for (counter,_) in undoneTasks.enumerated(){
-                    if counter == index.row {
-                        oldString = undoneTasks[counter].taskName
-                    }
-                }
-                for (counter,task) in Ambry.shared.tasks.objects(Task.self).enumerated(){
-                    if task.taskName == oldString {
-                        try! Ambry.shared.tasks.write {
-                            Ambry.shared.tasks.objects(Task.self)[counter].taskName = cell.taskNameTextField.text ?? ""
-                        }
-                        break
-                    }
-                }
-            } else {
-                let doneTasks = Ambry.shared.tasks.objects(Task.self).filter("taskDone == true")
-                var oldString = ""
-                for (counter,_) in doneTasks.enumerated(){
-                    if counter == index.row {
-                        oldString = doneTasks[counter].taskName
-                    }
-                }
-                
-                for (counter,task) in Ambry.shared.tasks.objects(Task.self).enumerated(){
-                    if task.taskName == oldString {
-                        try! Ambry.shared.tasks.write {
-                            Ambry.shared.tasks.objects(Task.self)[counter].taskName = cell.taskNameTextField.text ?? ""
-                        }
-                        break
-                    }
+        if let newName = cell.taskNameTextField.text {
+            if let section = self.taskTableView.indexPath(for: cell)?.section {
+                if let row = self.taskTableView.indexPath(for: cell)?.row {
+                    Ambry.shared.changeName(section: section, row: row, newName: newName)
                 }
             }
-            self.taskTableView.reloadData()
         }
+        self.taskTableView.reloadData()
     }
     
 
     func taskDeleteButtonTouched(cell: BTableViewCell) {
-        if let currentTask = cell.taskNameTextField.text {
-            for (index,task) in Ambry.shared.tasks.objects(Task.self).enumerated(){
-                if task.taskName == currentTask {
-                    try! Ambry.shared.tasks.write {
-                        Ambry.shared.tasks.delete(Ambry.shared.tasks.objects(Task.self)[index])
-                    }
-                    break
-                }
+        if let section = self.taskTableView.indexPath(for: cell)?.section {
+            if let name = cell.taskNameTextField.text {
+                Ambry.shared.deleteTask(section: section, name: name)
             }
         }
         self.taskTableView.reloadData()

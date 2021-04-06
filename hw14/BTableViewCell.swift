@@ -24,5 +24,4 @@ class BTableViewCell: UITableViewCell {
     @IBAction func taskDeleteButtonTouched(_ sender: Any) {
         delegate?.taskDeleteButtonTouched(cell: self)
     }
-    
 }
