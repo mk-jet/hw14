@@ -29,9 +29,7 @@ class CViewController: UIViewController {
 extension CViewController: UITableViewDataSource, UITableViewDelegate, CTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        CoreDataTasks.fetchTasks()
-        let rows = CoreDataTasks.doneTasks().count + CoreDataTasks.undoneTasks().count
-        return rows
+        return CoreDataTasks.quantityOfTasks()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

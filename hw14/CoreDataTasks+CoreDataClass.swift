@@ -17,26 +17,6 @@ public class CoreDataTasks: NSManagedObject {
             self.tasks = try context.fetch(request)
         } catch { print (error) }
     }
-    
-    func undoneTasks() -> [CoreDataTasks] {     // Возвращает массив невыполненных заданий
-        do {
-            let request = CoreDataTasks.fetchRequest() as NSFetchRequest<CoreDataTasks>
-            let predicate = NSPredicate(format: "completeness CONTAINS %@", "false")
-            request.predicate = predicate
-            self.tasks = try context.fetch(request)
-        } catch { print (error) }
-        return tasks 
-    }
-    
-    func doneTasks()-> [CoreDataTasks] {     // Возвращает массив выполненных заданий
-        do {
-            let request = CoreDataTasks.fetchRequest() as NSFetchRequest<CoreDataTasks>
-            let predicate = NSPredicate(format: "completeness CONTAINS %@", "true")
-            request.predicate = predicate
-            self.tasks = try context.fetch(request)
-        } catch { print (error) }
-        return tasks
-    }
      
     func addTaskToPersistance(name: String) {
         let newTask = CoreDataTasks(context: context)
@@ -73,5 +53,10 @@ public class CoreDataTasks: NSManagedObject {
     func task (row: Int) -> CoreDataTasks { // Возвращает задание
         fetchTasks()
         return tasks[row]
+    }
+    
+    func quantityOfTasks() -> Int {
+        fetchTasks()
+        return tasks.count
     }
 }
