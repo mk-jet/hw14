@@ -6,43 +6,12 @@ class ViewController: UIViewController {
 //    var tasksUndone: [NSManagedObject] = []
 //    var tasksDone: [NSManagedObject] = []
     
-    var tasks: [CoreDataTasks] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tasks = CoreDataTasks.fetchRequest()
-        
-        
-//        var tasksUndone = [TaskUndone]()
-//        let someTask = TaskUndone()
-//        someTask.name = "Task B"
-//        tasksUndone.append(someTask)
-//        print(tasksUndone.count)
-
-//        let task = tasks[0]
-//        task.value(forKeyPath: "name")
-        
-//        addTask(tasksList: "TaskDone", name: "Task A")
-//        fetchTasks()
-//        cleanTask()
-//        fetchTasks()
-//        addTask(tasksList: "TaskUndone", name: "A")
-//        addTask(tasksList: "TaskUndone", name: "B")
-//        addTask(tasksList: "TaskUndone", name: "C")
-//        addTask(tasksList: "TaskUndone", name: "D")
-//        addTask(tasksList: "TaskUndone", name: "E")
-//        addTask(tasksList: "TaskDone", name: "A")
-//        addTask(tasksList: "TaskDone", name: "F")
-//        addTask(tasksList: "TaskDone", name: "G")
-//        addTask(tasksList: "TaskDone", name: "H")
-//        deleteTask(tasksList: "TaskUndone", name: "New task")
-//        fetchTasks()
-//        printTasks()
-        
-        
-        
-        
-    }
+//    var tasks: [CoreDataTasks]?
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        tasks = CoreDataTasks.fetchRequest()
+//    }
     
 //    func addTask(tasksList: String, name: String) {
 //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }

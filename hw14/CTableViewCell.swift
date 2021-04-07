@@ -11,7 +11,6 @@ class CTableViewCell: UITableViewCell {
 
     @IBOutlet var taskDoneButton: UIButton!
     @IBOutlet var taskNameTextField: UITextField!
-    @IBOutlet var taskDeleteButton: UIButton!
     
     @IBAction func taskDoneButtonTouhced(_ sender: Any) {
         delegate?.taskDoneButtonTouhced(cell: self)
@@ -19,9 +18,5 @@ class CTableViewCell: UITableViewCell {
     
     @IBAction func taskNameChanged(_ sender: Any) {
         delegate?.taskNameChanged(cell: self)
-    }
-    
-    @IBAction func taskDeleteButtonTouched(_ sender: Any) {
-        delegate?.taskDeleteButtonTouched(cell: self)
     }
 }
