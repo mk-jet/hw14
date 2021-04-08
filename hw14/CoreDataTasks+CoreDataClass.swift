@@ -18,15 +18,13 @@ public class CoreDataTasks: NSManagedObject {
         } catch { print (error) }
     }
      
-    func addTaskToPersistance(name: String) {
+    func addTaskToPersistance(name: String) { // Добаввляет новое задание
         let newTask = CoreDataTasks(context: context)
         newTask.name = name
         newTask.completeness = false
         do {
             try self.context.save()
-        } catch {
-            print(error)
-        }
+        } catch { print(error) }
     }
     
     func deleteTask(row: Int) {   // Удаляет задание
@@ -55,7 +53,7 @@ public class CoreDataTasks: NSManagedObject {
         return tasks[row]
     }
     
-    func quantityOfTasks() -> Int {
+    func quantityOfTasks() -> Int { // Возвращает количество заданий
         fetchTasks()
         return tasks.count
     }

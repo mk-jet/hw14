@@ -3,7 +3,6 @@ import UIKit
 protocol CTableViewCellDelegate: Any {
     func taskDoneButtonTouhced (cell: CTableViewCell)
     func taskNameChanged (cell: CTableViewCell)
-    func taskDeleteButtonTouched (cell: CTableViewCell)
 }
 
 class CTableViewCell: UITableViewCell {

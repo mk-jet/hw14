@@ -1,7 +1,8 @@
 import UIKit
-import CoreData
 
 class CViewController: UIViewController {
+    
+    let coreTasks = CoreDataTasks()
     
     @IBOutlet var taskTableView: UITableView!
     
@@ -10,12 +11,12 @@ class CViewController: UIViewController {
         alert.addTextField()
         let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
             let textfield = alert.textFields![0]
-            CoreDataTasks.addTaskToPersistance(name: textfield.text!)
+            self.coreTasks.addTaskToPersistance(name: textfield.text!)
+            self.coreTasks.fetchTasks()
+            self.reload()
         }
         alert.addAction(submitButton)
         self.present(alert, animated: true, completion: nil)
-        CoreDataTasks.fetchTasks()
-        reload()
     }
     
     override func viewDidLoad() {
@@ -27,23 +28,20 @@ class CViewController: UIViewController {
 }
 
 extension CViewController: UITableViewDataSource, UITableViewDelegate, CTableViewCellDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CoreDataTasks.quantityOfTasks()
+        return coreTasks.quantityOfTasks()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        CoreDataTasks.fetchTasks()
+        coreTasks.fetchTasks()
         let cell = taskTableView.dequeueReusableCell(withIdentifier: "CTableViewCell", for: indexPath) as! CTableViewCell
 
-        cell.taskDeleteButton.backgroundColor = UIColor.white
-        cell.taskDeleteButton.setImage(UIImage(named: "delete"), for: .normal)
-    
-        let task = CoreDataTasks.task(row: indexPath.row)
-
-        let taskButtonImage = task.completeness == false ? UIImage(named: "uncheck") : UIImage(named: "check")
-        cell.taskDoneButton.tintColor = task.completeness == false ? UIColor.darkGray : UIColor.lightGray
+        let task = coreTasks.task(row: indexPath.row)
+        
         cell.taskDoneButton.backgroundColor = UIColor.white
+        cell.taskDoneButton.tintColor = task.completeness == false ? UIColor.darkGray : UIColor.lightGray
+        let taskButtonImage = task.completeness == false ? UIImage(named: "uncheck") : UIImage(named: "check")
         cell.taskDoneButton.setImage(taskButtonImage, for: .normal)
 
         cell.taskNameTextField.text = task.name
@@ -67,25 +65,28 @@ extension CViewController: UITableViewDataSource, UITableViewDelegate, CTableVie
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
-            CoreDataTasks.deleteTask(row: indexPath.row)
-            CoreDataTasks.fetchTasks()
+            self.coreTasks.deleteTask(row: indexPath.row)
+            self.coreTasks.fetchTasks()
+            self.reload()
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
     
     func taskDoneButtonTouhced(cell: CTableViewCell) {
         if let row = self.taskTableView.indexPath(for: cell)?.row {
-            CoreDataTasks.changeStatus(row: row)
+            coreTasks.changeStatus(row: row)
         }
-        CoreDataTasks.fetchTasks()
+        coreTasks.fetchTasks()
         reload()
     }
     
     func taskNameChanged(cell: CTableViewCell) {
         if let row = self.taskTableView.indexPath(for: cell)?.row {
-            CoreDataTasks.changeStatus(row: row)
+            if let name = cell.taskNameTextField.text {
+                coreTasks.changeName(row: row, name: name)
+            }
         }
-        CoreDataTasks.fetchTasks()
+        coreTasks.fetchTasks()
         reload()
     }
 }
