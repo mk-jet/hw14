@@ -103,3 +103,13 @@ https://bl.uma.media/live/485543/HLS/4614144_3/2/1/playlist.m3u8
 https://okkotv-live.cdnvideo.ru/channel/START_Air_HD/1080p.m3u8
 #EXTINF:-1 group-title="Прочее", Русский иллюзион
 https://sc.id-tv.kz:443/RusIlluzion_34_35.m3u8
+#EXTINF:-1 group-title="Прочее", Comedy Central 2
+http://193.32.37.17:8000/play/a00e/index.m3u8
+#EXTINF:-1 group-title="Прочее", Comedy Central 3
+http://216.31.255.235/hlsl/1/COMEDY/01.m3u8
+#EXTINF:-1 group-title="Прочее", Comedy Central 4
+http://193.32.37.17:8000/play/a00d/index.m3u8
+#EXTINF:-1 group-title="Прочее", Comedy Central 5
+http://193.32.37.17:8000/play/a00f/index.m3u8
+#EXTINF:-1 group-title="Прочее", Comedy Central 6
+http://193.32.37.17:8000/play/a009/index.m3u8
