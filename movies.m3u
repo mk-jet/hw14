@@ -1,6 +1,6 @@
 #EXTM3U url-tvg="https://iptvx.one/EPG"
-#EXTINF:-1 tvg-id="paramount-comedy" group-title="Комедии", Comedy Central
-http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/157/index.m3u8
+#EXTINF:-1 group-title="Комедии", Comedy Central
+http://194.114.144.244:8001/play/paramountcomedy
 #EXTINF:-1 group-title="Комедии", Комедийное HD
 http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/912/index.m3u8
 #EXTINF:-1 group-title="Комедии", Viju+ Comedy HD
@@ -39,6 +39,10 @@ https://bl.uma.media/live/485542/HLS/4614144_3/2/1/playlist.m3u8
 https://sc.id-tv.kz/Mujskoe_kino_hd_34_35.m3u8
 #EXTINF:-1 group-title="Хиты", Киносемья 
 http://streamer1.ruslanatv.ru/russia/kinosemya_sd_new_2023/playlist.m3u8
+#EXTINF:-1 group-title="Хиты", Киномикс HD
+http://109.200.135.130:8080/kinomix/index.m3u8
+#EXTINF:-1 tvg-id="filmbox-ru" group-title="Средние", Filmbox 
+https://tbs01-edge11.itdc.ge/filmbox/tracks-v1a1/mono.m3u8
 #EXTINF:-1 group-title="Средние", Amedia Premium HD 
 http://okkotv-live.cdnvideo.ru/channel/dash/amedia_premium_hd/playlist.mpd
 #EXTINF:-1 group-title="Средние", Киносерия
@@ -59,8 +63,6 @@ https://bl.uma.media/live/485536/HLS/4614144_3/2/1/playlist.m3u8
 http://streamer1.ruslanatv.ru/russia/kinopremyera_hd_2023/playlist.m3u8
 #EXTINF:-1 tvg-id="backustv" group-title="Нестабильные", BackusTV HD 
 http://stream.backustv.ru/live/btv/index.m3u8
-#EXTINF:-1 tvg-id="filmbox-ru" group-title="Нестабильные", Filmbox 
-http://94.230.240.17:8080/film_box/index.m3u8
 #EXTINF:-1 tvg-id="plan-b" group-title="Нестабильные", Plan B HD
 http://31.148.6.4:10236/index.m3u8
 #EXTINF:-1 group-title="Нестабильные", TV XXI
@@ -103,13 +105,5 @@ https://bl.uma.media/live/485543/HLS/4614144_3/2/1/playlist.m3u8
 https://okkotv-live.cdnvideo.ru/channel/START_Air_HD/1080p.m3u8
 #EXTINF:-1 group-title="Прочее", Русский иллюзион
 https://sc.id-tv.kz:443/RusIlluzion_34_35.m3u8
-#EXTINF:-1 group-title="Избранное", Comedy Central 2
-http://193.32.37.17:8000/play/a00e/index.m3u8
-#EXTINF:-1 group-title="Избранное", Comedy Central 3
-http://216.31.255.235/hlsl/1/COMEDY/01.m3u8
-#EXTINF:-1 group-title="Избранное", Comedy Central 4
-http://193.32.37.17:8000/play/a00d/index.m3u8
-#EXTINF:-1 group-title="Избранное", Comedy Central 5
-http://193.32.37.17:8000/play/a00f/index.m3u8
-#EXTINF:-1 group-title="Избранное", Comedy Central 6
-http://193.32.37.17:8000/play/a009/index.m3u8
+#EXTINF:-1 group-title="Комедии", Comedy Central 2
+http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/157/index.m3u8
