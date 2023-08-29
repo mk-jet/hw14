@@ -1,14 +1,14 @@
 #EXTM3U url-tvg="https://iptvx.one/EPG"
 #EXTINF:-1 group-title="Комедии", Comedy Central
-http://list.ydns.eu:8000/play/a01u/index.m3u8
-#EXTINF:-1 group-title="Комедии", Comedy Central 2
 http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/157/index.m3u8
 #EXTINF:-1 group-title="Комедии", Комедийное HD
 http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/912/index.m3u8
 #EXTINF:-1 group-title="Комедии", Viju+ Comedy HD
 https://bl.uma.media/live/485539/HLS/4614144_3/2/1/playlist.m3u8
 #EXTINF:-1 group-title="Комедии", Кинокомедия
-http://streamer1.ruslanatv.ru/russia/kinokomediya_sd_2023/playlist.m3u8
+http://streamer1.ruslanatv.ru/russia/kinokomediya_sd_2023/playlist.m3u8 
+#EXTINF:-1 group-title="Комедии", Viasat Kino Comedy
+http://91.233.215.250:7272/5RqMvVnGzdoBQbf
 #EXTINF:-1 group-title="Хиты", A1 HD
 http://okkotv-live.cdnvideo.ru/channel/A1_HD/1080p.m3u8
 #EXTINF:-1 group-title="Хиты", .black 
@@ -107,5 +107,7 @@ https://bl.uma.media/live/485543/HLS/4614144_3/2/1/playlist.m3u8
 https://okkotv-live.cdnvideo.ru/channel/START_Air_HD/1080p.m3u8
 #EXTINF:-1 group-title="Прочее", Русский иллюзион
 https://sc.id-tv.kz:443/RusIlluzion_34_35.m3u8
+#EXTINF:-1 group-title="Комедии", Comedy Central 2
+http://list.ydns.eu:8000/play/a01u/index.m3u8
 #EXTINF:-1 group-title="Комедии", Comedy Central 3
 http://194.114.144.244:8001/play/paramountcomedy
