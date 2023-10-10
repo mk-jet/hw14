@@ -1,9 +1,5 @@
 #EXTM3U url-tvg="https://iptvx.one/EPG"
 #EXTINF:-1 group-title="Комедии", Comedy Central
-http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/157/index.m3u8
-#EXTINF:-1 group-title="Комедии", Paramount Comedy
-http://rhsbjv7k.tvclub.xyz/iptv/UURCP5M58D3ZZE/157/index.m3u8
-#EXTINF:-1 group-title="Комедии", Comedy
 http://ucdn.beetv.kz/btv/live/hls/000000452.m3u8
 #EXTINF:-1 group-title="Комедии", Комедийное HD
 http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/912/index.m3u8
@@ -112,6 +108,6 @@ https://okkotv-live.cdnvideo.ru/channel/START_Air_HD/1080p.m3u8
 #EXTINF:-1 group-title="Прочее", Русский иллюзион
 https://sc.id-tv.kz:443/RusIlluzion_34_35.m3u8
 #EXTINF:-1 group-title="Комедии", Comedy Central 2
-http://list.ydns.eu:8000/play/a01u/index.m3u8
-#EXTINF:-1 group-title="Комедии", Comedy Central 3
-http://194.114.144.244:8001/play/paramountcomedy
+http://22436a48.amazzin.pw/iptv/C9AAQCDMRHSBAF/157/index.m3u8
+#EXTINF:-1 group-title="Комедии", Paramount Comedy
+http://rhsbjv7k.tvclub.xyz/iptv/UURCP5M58D3ZZE/157/index.m3u8
